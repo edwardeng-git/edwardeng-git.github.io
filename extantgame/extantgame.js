@@ -169,7 +169,7 @@ if(distToBall<ballSize/2){
 }
 
 
-if(score>= 30){
+if(score>= 25){
   gameState = "youWin";
   
 }
