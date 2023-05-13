@@ -18,21 +18,27 @@ img9 = loadImage('ringedseal3.png');
 img10 = loadImage('icefield4g.jpg');
 img11 = loadImage('polarbear4.png');
 img12 = loadImage('ringedseal4.png');
-img13 = loadImage('icefield5g.jpg');
+img13 = loadImage('icefield5g.png');
 img14 = loadImage('polarbear5.png');
 img15 = loadImage('ringedseal5.png');
-img16 = loadImage('icefield6g.jpg');
+img16 = loadImage('icefield6g.png');
+img17 = loadImage('polarbear6.png');
+img18 = loadImage('ringedseal6.png');
+img19 = loadImage('bsod.png');
+
 }
 
 function setup() {
 createCanvas(600, 600);
 textAlign(CENTER);
 textSize(40);
-img2.resize(150, 150);
-img5.resize(150, 150);
-img8.resize(150, 150);
-img11.resize(150, 150);
-img14.resize(150, 150);
+img2.resize(125, 125);
+img5.resize(125, 125);
+img8.resize(125, 125);
+img11.resize(125, 125);
+img14.resize(125, 125);
+img17.resize(125, 125);
+img19.resize(600,600);
 noCursor();
 
 }//end set up
@@ -65,8 +71,13 @@ if(gameState == "L5"){
    image(img14, mouseX, mouseY);
    levelFive();
 }
-if(gameState == "youWin"){
+if(gameState == "L6"){
    background(img16);
+   image(img17, mouseX, mouseY);
+   levelSix();
+}
+if(gameState == "youWin"){
+   background(img19);
    youWin();
 }
    
@@ -80,7 +91,7 @@ if(distToBall<ballSize/2){
   ballx=random(width);
   bally=random(height);
   score = score +1;
-  ballSize = ballSize -4;
+  ballSize = ballSize -2;
 
 }
 
@@ -101,7 +112,7 @@ if(distToBall<ballSize/2){
   ballx=random(width);
   bally=random(height);
   score = score +1;
-  ballSize = ballSize -4;
+  ballSize = ballSize -2;
 }
 
 
@@ -116,12 +127,13 @@ if(score>= 10){
 
 function levelThree() {
   text("Level 3", width/2, height -20);
+  fill(255, 255, 255);
   var distToBall = dist(ballx, bally, mouseX, mouseY);
 if(distToBall<ballSize/2){
   ballx=random(width);
   bally=random(height);
   score = score +1;
-  ballSize = ballSize -4;
+  ballSize = ballSize -2;
 
 }
 
@@ -142,7 +154,7 @@ if(distToBall<ballSize/2){
   ballx=random(width);
   bally=random(height);
   score = score +1;
-  ballSize = ballSize -4;
+  ballSize = ballSize -2;
 
 }
 
@@ -164,13 +176,12 @@ if(distToBall<ballSize/2){
   ballx=random(width);
   bally=random(height);
   score = score +1;
-  ballSize = ballSize -4;
 
 }
 
 
 if(score>= 25){
-  gameState = "youWin";
+  gameState = "L6";
   
 }
   image(img15, ballx, bally, ballSize, ballSize);
@@ -178,19 +189,39 @@ if(score>= 25){
   
 } //end of level 5 ============================
 
+function levelSix() {
+  text("Level 6", width/2, height -20);
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+if(distToBall<ballSize/2){
+  ballx=random(width);
+  bally=random(height);
+  score = score +1;
+}
+
+
+if(score>= 30){
+  gameState = "youWin";
+  
+}
+
+  image(img15, ballx, bally, ballSize, ballSize);
+  //ellipse(ballx, bally, ballSize, ballSize);
+
+}  // end of level six
+  
 function youWin() {
-  text("Hey You Won... Or Did You?", width/2, height -20);
+  //text("Hey You Won... Or Did You?", width/2, height -20);
   fill(255, 255, 255);
   var distToBall = dist(ballx, bally, mouseX, mouseY);
 if(distToBall<ballSize/2){
   ballx=random(width);
   bally=random(height);
   score = score +1;
-  ballSize = ballSize -5;
+  ballSize = ballSize -3;
 
 }
 
-if(score>= 30){
+if(score>= 35){
   gameState = "youWin";
 }  
   
