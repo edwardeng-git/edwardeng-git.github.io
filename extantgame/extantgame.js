@@ -77,7 +77,8 @@ if(gameState == "L6"){
    levelSix();
 }
 if(gameState == "youWin"){
-   background(img19);
+  resizeCanvas(windowWidth, windowHeight); 
+  background(img19);
    youWin();
 }
    
