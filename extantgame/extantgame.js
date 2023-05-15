@@ -38,7 +38,6 @@ img8.resize(125, 125);
 img11.resize(125, 125);
 img14.resize(125, 125);
 img17.resize(125, 125);
-img19.resize(600,600);
 noCursor();
 
 }//end set up
